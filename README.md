@@ -1,7 +1,7 @@
 # Productivity tracker
 
 <p align="center">
-    <img src="assets\Logo.PNG" alt="Logo">
+    <img src="assets\Logo.PNG" alt="Logo" width = "500px">
     <br>Application to help you stay focused and productive.
 </p>
 
