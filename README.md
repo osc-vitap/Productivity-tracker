@@ -25,7 +25,7 @@ based on both user preferences as well as the default settings. Users can also
 customize the level of data they want to share.
 
 The application specifically focuses on analytics, that is, statistics of the data collected
-will be displayed for user to see and download.
+will be displayed for user to see and download
 
 
 ## License 
