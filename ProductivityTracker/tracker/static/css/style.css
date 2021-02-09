@@ -1,0 +1,137 @@
+:root {
+  --primary-color: #12005e !important;
+  --primary-dark-color: #0d0045 !important;
+  --primary-light-color: #2500c0 !important;
+
+  --secondary-color: #e93651 !important;
+  --secondary-dark-color: #f49ba8 !important;
+  --secondary-light-color: #e30425 !important;
+
+  --white-color: #ffffff !important;
+  --black-color: #111111 !important;
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.btn {
+  background-color: var(--primary-color);
+}
+
+.brand-logo {
+  font-size: 24px !important;
+  font-weight: 700;
+  margin: 0px 25px;
+}
+
+nav {
+  background-color: var(--primary-color);
+}
+
+nav ul.right {
+  margin: 0px 25px;
+}
+
+.sidenav {
+  background-color: var(--primary-dark-color);
+  padding-top: 25px;
+}
+
+.sidenav li > a {
+  color: var(--white-color);
+}
+
+@media screen and (max-width: 700px) {
+  .brand-logo {
+    font-size: 16px !important;
+    font-weight: 700;
+  }
+}
+
+.ml-5 {
+  margin-left: 5px !important;
+}
+
+.mr-5 {
+  margin-right: 5px !important;
+}
+
+.ml-10 {
+  margin-left: 10px !important;
+}
+
+.mr-10 {
+  margin-right: 10px !important;
+}
+
+.ml-15 {
+  margin-left: 15px !important;
+}
+
+.mr-15 {
+  margin-right: 15px !important;
+}
+
+.ml-15 {
+  margin-left: 5px !important;
+}
+
+.mr-15 {
+  margin-right: 5px !important;
+}
+
+.ml-20 {
+  margin-left: 20x !important;
+}
+
+.mr-20 {
+  margin-right: 20px !important;
+}
+
+.pl-5 {
+  padding-left: 5px !important;
+}
+
+.pr-5 {
+  padding-right: 5px !important;
+}
+
+.pl-10 {
+  padding-left: 10px !important;
+}
+
+.pr-10 {
+  padding-right: 10px !important;
+}
+
+.pl-15 {
+  padding-left: 15px !important;
+}
+
+.pr-15 {
+  padding-right: 15px !important;
+}
+
+.pl-15 {
+  padding-left: 5px !important;
+}
+
+.pr-15 {
+  padding-right: 5px !important;
+}
+
+.pl-20 {
+  padding-left: 20x !important;
+}
+
+.pr-20 {
+  padding-right: 20px !important;
+}
+
+input[type="checkbox"]:checked + span:not(.lever)::before {
+  border: 4px solid transparent;
+  border-bottom: 4px solid var(--primary-color);
+  border-right: 4px solid var(--primary-color);
+  background: transparent;
+}
