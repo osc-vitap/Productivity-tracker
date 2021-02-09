@@ -1,0 +1,153 @@
+{% extends "includes/base.html" %} {% block content %}
+
+<div class="row">
+  <form id="myform" action="" method="post" class="form-inline" role="form">
+    {% csrf_token %}
+    <p class="right mr-20">
+      <label>
+        <input
+          type="checkbox"
+          id="start"
+          name="start"
+          value="on"
+          onChange="this.form.submit()"
+        />
+        <span>Start Tracking</span>
+      </label>
+    </p>
+  </form>
+</div>
+
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card darken-1">
+      <div class="card-content">
+        <canvas id="bar-chart" height="100"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m12">
+    <div class="card darken-1">
+      <div class="card-content">
+        <span class="card-title">Time Burn List</span>
+        <canvas id="pie-chart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card darken-1">
+      <div class="card-content">
+        <span class="card-title">Time Burn List</span>
+        <table class="responsive-table striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Visited Tabs</th>
+              <th>Time spent (in minutes)</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for l in table %}
+            <tr>
+              <th scope="row">{{ l.0 }}</th>
+              <td>{{l.1}}</td>
+              <td>{{l.2}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+    function getRandomColor() {
+        return Math.floor((Math.random()*255) + 0)
+    }
+
+    function getBackgroundColorArray(data) {
+        let arr = [];
+        for (let i = 0; i < data.length; i++) {
+            arr.push(`rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`);
+        }
+
+        console.log(arr);
+        return arr;
+    }
+    const data = {{time | safe }};
+    const labels = {{name | safe }};
+    const backgroundColorArr = getBackgroundColorArray({{time | safe}});
+
+     let lineConfig = {
+    	type: 'line',
+    	data: {
+    		labels: labels,
+    		datasets: [{
+    			label: 'Time Spent',
+    			backgroundColor: '#12005e',
+    			borderColor: '#12005e',
+    			fill: false,
+    			data: data,
+    		}],
+           },
+    	options: {
+    		responsive: true,
+    		scales: {
+    			xAxes: [{
+                  gridLines: {
+                      drawOnChartArea: false,
+                  },
+    				display: true,
+                  ticks: {
+                      callback: function(label, index, labels) {
+                          if (label.length > 10) {
+                              return label.substring(0, 15) + '...';
+                          }else{
+                              return label;
+                          }
+                      }
+                  },
+    			}],
+    			yAxes: [{
+    				display: true,
+                  gridLines: {
+                      drawOnChartArea: false,
+                  },
+    				//type: 'logarithmic',
+    			}]
+    		}
+    	}
+    };
+
+    let barConfig = {
+      type: 'pie',
+      data: {
+          labels: labels,
+          datasets: [{
+              data: data,
+              borderColor: backgroundColorArr,
+              backgroundColor: backgroundColorArr,
+              borderWidth: 2,
+          }]},
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+      }
+  }
+
+     window.onload = function() {
+       var ctx = document.getElementById('pie-chart').getContext('2d');
+       window.myPie = new Chart(ctx, barConfig);
+       var ctx1 = document.getElementById('bar-chart').getContext('2d');
+       window.myBar = new Chart(ctx1, lineConfig);
+     };
+</script>
+
+{% endblock content %}
