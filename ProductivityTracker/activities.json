@@ -1,305 +1,294 @@
 {
     "activities": [
         {
-            "name": "Productivity Tracker - Google Chrome",
+            "name": "chrome",
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2021-02-09 09:36:15",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 4,
-                    "start_time": "2021-02-09 09:36:11"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:23",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 17,
-                    "start_time": "2021-02-09 09:37:06"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:47",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:37:46"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:22",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 30,
-                    "start_time": "2021-02-09 09:37:52"
-                }
-            ]
-        },
-        {
-            "name": "",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:36:16",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:36:15"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:25",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:37:24"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:27",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:37:26"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:46",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:37:45"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:17",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:39:16"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:27",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:39:26"
-                }
-            ]
-        },
-        {
-            "name": "Meeting in \"General\" | Microsoft Teams",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:06",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 50,
-                    "start_time": "2021-02-09 09:36:16"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:26",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:37:25"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:52",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 5,
-                    "start_time": "2021-02-09 09:37:47"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:23",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:38:22"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:16",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 20,
-                    "start_time": "2021-02-09 09:38:56"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:26",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:39:25"
-                }
-            ]
-        },
-        {
-            "name": "C:\\Windows\\System32\\cmd.exe - py  manage.py runserver",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:35",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 8,
-                    "start_time": "2021-02-09 09:37:27"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:25",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 8,
-                    "start_time": "2021-02-09 09:39:17"
-                }
-            ]
-        },
-        {
-            "name": "ProductivityTracker",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:44",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 9,
-                    "start_time": "2021-02-09 09:37:35"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:29",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 6,
-                    "start_time": "2021-02-09 09:38:23"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:32",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:38:31"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:37",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 5,
-                    "start_time": "2021-02-09 09:39:32"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:46",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 4,
-                    "start_time": "2021-02-09 09:39:42"
-                }
-            ]
-        },
-        {
-            "name": "time tracker - Visual Studio Code",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:37:45",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:37:44"
-                }
-            ]
-        },
-        {
-            "name": "tracker",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:31",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 2,
-                    "start_time": "2021-02-09 09:38:29"
-                }
-            ]
-        },
-        {
-            "name": "time_tracker",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:37",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 5,
-                    "start_time": "2021-02-09 09:38:32"
-                }
-            ]
-        },
-        {
-            "name": "Winter Season Of Code '20",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:41",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 4,
-                    "start_time": "2021-02-09 09:38:37"
-                },
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:30",
+                    "end_time": "2021-02-21 12:38:01",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 3,
-                    "start_time": "2021-02-09 09:39:27"
+                    "start_time": "2021-02-21 12:37:58"
                 },
                 {
                     "days": 0,
-                    "end_time": "2021-02-09 09:39:50",
+                    "end_time": "2021-02-21 12:38:51",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 8,
+                    "start_time": "2021-02-21 12:38:43"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:40:42",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 9,
+                    "start_time": "2021-02-21 12:40:33"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:41:34",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:41:33"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:41:50",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 2,
-                    "start_time": "2021-02-09 09:39:48"
+                    "start_time": "2021-02-21 12:41:48"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:42:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 6,
+                    "start_time": "2021-02-21 12:42:30"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:43:19",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 16,
+                    "start_time": "2021-02-21 12:43:03"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:43:58",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 9,
+                    "start_time": "2021-02-21 12:43:49"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:44:04",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:44:03"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:44:28",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 11,
+                    "start_time": "2021-02-21 12:44:17"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:49:27",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 12,
+                    "start_time": "2021-02-21 12:49:15"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:49:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2021-02-21 12:49:35"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:49:42",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:49:41"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:50:24",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 28,
+                    "start_time": "2021-02-21 12:49:55"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:51:54",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 45,
+                    "start_time": "2021-02-21 12:51:08"
                 }
             ]
         },
         {
-            "name": "Discovered 4,484 items (21.3 MB)...",
+            "name": "explorer",
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2021-02-09 09:38:42",
+                    "end_time": "2021-02-21 12:38:02",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2021-02-09 09:38:41"
+                    "start_time": "2021-02-21 12:38:01"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:38:53",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2021-02-21 12:38:51"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:38:56",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2021-02-21 12:38:54"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:40:45",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2021-02-21 12:40:42"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:41:56",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2021-02-21 12:41:54"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:42:40",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:42:39"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:43:20",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:43:19"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:44:30",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2021-02-21 12:44:28"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:49:38",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:49:37"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:50:25",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:50:24"
                 }
             ]
         },
         {
-            "name": "Discovered 12,602 items (132 MB)...",
+            "name": "cmd",
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2021-02-09 09:38:43",
+                    "end_time": "2021-02-21 12:38:07",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2021-02-21 12:38:02"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:38:43",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2021-02-21 12:38:41"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:38:54",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 1,
-                    "start_time": "2021-02-09 09:38:42"
+                    "start_time": "2021-02-21 12:38:53"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:41:37",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2021-02-21 12:41:34"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:41:54",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 4,
+                    "start_time": "2021-02-21 12:41:50"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:42:08",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 11,
+                    "start_time": "2021-02-21 12:41:57"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:42:39",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 2,
+                    "start_time": "2021-02-21 12:42:37"
+                }
+            ]
+        },
+        {
+            "name": "Discord",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:38:41",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 34,
+                    "start_time": "2021-02-21 12:38:07"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:41:23",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 37,
+                    "start_time": "2021-02-21 12:40:45"
                 }
             ]
         },
@@ -308,66 +297,132 @@
             "time_entries": [
                 {
                     "days": 0,
-                    "end_time": "2021-02-09 09:38:53",
+                    "end_time": "2021-02-21 12:41:33",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 10,
-                    "start_time": "2021-02-09 09:38:43"
-                }
-            ]
-        },
-        {
-            "name": "56% complete",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:55",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:38:54"
-                }
-            ]
-        },
-        {
-            "name": "66% complete",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:38:56",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 1,
-                    "start_time": "2021-02-09 09:38:55"
-                }
-            ]
-        },
-        {
-            "name": "time tracker",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-09 09:39:32",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 2,
-                    "start_time": "2021-02-09 09:39:30"
+                    "start_time": "2021-02-21 12:41:23"
                 },
                 {
                     "days": 0,
-                    "end_time": "2021-02-09 09:39:42",
+                    "end_time": "2021-02-21 12:44:03",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 5,
-                    "start_time": "2021-02-09 09:39:37"
+                    "start_time": "2021-02-21 12:43:58"
                 },
                 {
                     "days": 0,
-                    "end_time": "2021-02-09 09:39:48",
+                    "end_time": "2021-02-21 12:44:10",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 6,
+                    "start_time": "2021-02-21 12:44:04"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:49:35",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 8,
+                    "start_time": "2021-02-21 12:49:27"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:51:55",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:51:54"
+                }
+            ]
+        },
+        {
+            "name": "Teams",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:41:57",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:41:56"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:44:31",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:44:30"
+                }
+            ]
+        },
+        {
+            "name": "Code",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:43:21",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:43:20"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:49:41",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 3,
+                    "start_time": "2021-02-21 12:49:38"
+                }
+            ]
+        },
+        {
+            "name": "steam",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:49:49",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 7,
+                    "start_time": "2021-02-21 12:49:42"
+                }
+            ]
+        },
+        {
+            "name": "KMPlayer64",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:50:26",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 1,
+                    "start_time": "2021-02-21 12:50:25"
+                },
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:51:08",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 40,
+                    "start_time": "2021-02-21 12:50:28"
+                }
+            ]
+        },
+        {
+            "name": "KMPLoading",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2021-02-21 12:50:28",
                     "hours": 0,
                     "minutes": 0,
                     "seconds": 2,
-                    "start_time": "2021-02-09 09:39:46"
+                    "start_time": "2021-02-21 12:50:26"
                 }
             ]
         }

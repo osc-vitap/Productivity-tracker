@@ -36,7 +36,7 @@ def about(request):
                       u'HelpLink',
                       u'HelpTelephone',
                       u'URLInfoAbout',
-                      u'URLUpdateInfo',] 
+                      u'URLUpdateInfo',]
  
 # class to be used for python users :)
  Product = namedtuple('Product', PRODUCT_PROPERTIES)
@@ -77,7 +77,7 @@ def about(request):
             break
         products.append(uid_buffer.value)
     return products
- 
+    
  
  def get_installed_products():
     """Returns a collection of products that are installed in the system."""

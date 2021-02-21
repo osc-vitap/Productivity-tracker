@@ -25,16 +25,12 @@
                 <th scope="row">
                   <p>
                     <label>
-                      <input
-                        type="checkbox"
-                        name="filters[]"
-                        value="{{app.InstalledProductName}}"
-                      />
+                      <input type="checkbox" name="filters[]" value="{{app}}" />
                       <span></span>
                     </label>
                   </p>
                 </th>
-                <td>{{app.InstalledProductName}}</td>
+                <td>{{app}}</td>
               </tr>
               {% endfor %}
             </tbody>
