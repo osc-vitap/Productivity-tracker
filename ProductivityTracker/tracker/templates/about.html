@@ -4,9 +4,10 @@
   <div class="col s12 m12">
     <div class="card darken-1">
       <div class="card-content">
-        <form action="">
+        <form action="" method="POST">
+          {% csrf_token %}
           <span class="card-title"
-            >Focus Mode
+            >Select Applications to be Restricted in Focus Mode :
             <button type="submit" class="right waves-effect waves-light btn">
               Apply Filters
             </button></span
@@ -14,7 +15,7 @@
           <table class="responsive-table striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th></th>
                 <th>Application Name</th>
               </tr>
             </thead>
@@ -25,7 +26,7 @@
                 <th scope="row">
                   <p>
                     <label>
-                      <input type="checkbox" name="filters[]" value="{{app}}" />
+                      <input type="checkbox" name="filters" value="{{app}}" />
                       <span></span>
                     </label>
                   </p>

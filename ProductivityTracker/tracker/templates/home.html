@@ -4,7 +4,7 @@
   <form id="myform" action="" method="post" class="form-inline" role="form">
     {% csrf_token %}
     <p class="right mr-20">
-      <label>
+      <label style="margin-right: 25px; margin-left:25px">
         <input
           type="checkbox"
           id="start"
@@ -14,7 +14,17 @@
         />
         <span>Start Tracking</span>
       </label>
-      <a href="/resetTracker" class="btn red darken-1 ml-10">Reset Tracker</a>
+      <label style="margin-right: 25px; margin-left:25px">
+        <input
+          type="checkbox"
+          id="focusmode"
+          name="focusmode"
+          value="on"
+          onChange="this.form.submit()"
+        />
+        <span>Focus Mode</span>
+      </label>
+      <a href="/resetTracker" class="btn red darken-1 ml-10" style="margin-left: 25px;">Reset Tracker</a>
     </p>
   </form>
 </div>
@@ -87,12 +97,12 @@
     const backgroundColorArr = getBackgroundColorArray({{time | safe}});
 
      let lineConfig = {
-    	type: 'line',
+    	type: 'bar',
     	data: {
     		labels: labels,
     		datasets: [{
     			label: 'Time Spent',
-    			backgroundColor: '#12005e',
+    			backgroundColor: backgroundColorArr,
     			borderColor: '#12005e',
     			fill: false,
     			data: data,

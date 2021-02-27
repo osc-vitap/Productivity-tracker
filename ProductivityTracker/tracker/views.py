@@ -7,6 +7,7 @@ import pandas as pd
 import threading
 from django.shortcuts import render, HttpResponse, redirect
 import sys
+import pythoncom
 import win32gui
 import time
 from .activity import *
@@ -17,6 +18,15 @@ import psutil
 import win32process
 import win32gui
 import time
+import pickle
+import wmi
+import re
+import schedule
+import time
+from datetime import datetime as d
+import os
+import ctypes
+import psutil   
 
 
 def get_active_window():
@@ -36,6 +46,7 @@ def get_active_window():
 
 
 val = ''
+fmval = ''
 
 
 def check():
@@ -45,7 +56,7 @@ def check():
         return False
 
 
-def final(val):
+def final(val,fmval):
     if val == 'on':
         t = True
     else:
@@ -70,7 +81,7 @@ def final(val):
                 m = 0
             if val == 'off':
                 m = 5
-
+            focusMode(fmval)
             # t=check()
             if active_window_name != new_window_name:
                 print(active_window_name)
@@ -147,26 +158,57 @@ def home(request):
     context = {'name': name, 'time': time1, 'table': table}
 
     val = 'off'
+    fmval = 'off'
     if request.method == 'POST':
         v = request.POST.get('start')
-        t = threading.Thread(target=final, args=(val, ))
+        fmv = request.POST.get('focusmode')
 
-        if v == 'on':
+        if v == 'on' and fmv =='on':
             val = 'on'
-            final(val)
-
-            t.start()
-        else:
+            fmval='on'
+            final(val,fmval)
+        elif v == 'on' and fmv =='off':
+            val = 'on'
+            fmval='off'
+            final(val,fmval)
+        elif v == 'off' and fmv =='on':
             val = 'off'
-            final(val)
+            fmval='on'
+            final(val,fmval)
+        elif v:
+            val = 'off'
+            fmval='off'
+            final(val,fmval)
+
 
         return render(request, 'home.html', context=context)
 
     return render(request, 'home.html', context=context)
 
+def focusMode(val):
+    pythoncom.CoInitialize()
+    data=[]
+    with open('focusModeApps.pkl','rb') as file:
+            data = pickle.load(file)
+    f = wmi.WMI()
+    app_proccess_names=[]
+    for process in f.Win32_Process():
+        for i in data:
+            if re.search(process.Name[:-4].lower(),i.lower()):
+                app_proccess_names.append(process.Name)
+    
+    #print(app_proccess_names)
+    while val=='on':
+        for application in app_proccess_names:
+            if(application in (p.name() for p in psutil.process_iter())):
+                os.system('taskkill /im '+application) # select process by its name  
+ 
+
+                
+
+
 # ----------------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------------------
-
 
 def foo(hive, flag):
     aReg = winreg.ConnectRegistry(None, hive)
@@ -202,6 +244,18 @@ def foo(hive, flag):
 
 
 def about(request):
+
+    if request.method == 'POST':
+        # use filters var here to process
+        data = request.POST.getlist('filters')
+        #print(data)
+        with open('focusModeApps.pkl','wb') as file:
+            pickle.dump(data,file)
+        
+        #print(data)
+
+        
+
     software_list = foo(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_32KEY) + foo(
         winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY) + foo(winreg.HKEY_CURRENT_USER, 0)
     installed_apps = []
