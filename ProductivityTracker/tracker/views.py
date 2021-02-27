@@ -31,18 +31,19 @@ import psutil
 
 def get_active_window():
     _active_window_name = None
-    if sys.platform in ['Windows', 'win32', 'cygwin']:
-        window = win32gui.GetForegroundWindow()
-        pid = win32process.GetWindowThreadProcessId(
-            win32gui.GetForegroundWindow())
-
-        _active_window_name = psutil.Process(pid[-1]).name()
-
-    else:
-        print("sys.platform={platform} is not supported."
+    try:
+        if sys.platform in ['Windows', 'win32', 'cygwin']:
+            window = win32gui.GetForegroundWindow()
+            pid = win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow()) 
+            _active_window_name = psutil.Process(pid[-1]).name()
+        else:
+            print("sys.platform={platform} is not supported."
               .format(platform=sys.platform))
-        print(sys.version)
-    return _active_window_name[0:-4]
+            print(sys.version)
+    except:
+            _active_window_name = 'Unknown'
+            return _active_window_name
+    return _active_window_name[0:-4] 
 
 
 val = ''

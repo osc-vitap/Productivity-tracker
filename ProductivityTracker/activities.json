@@ -412,19 +412,6 @@
                     "start_time": "2021-02-21 12:50:28"
                 }
             ]
-        },
-        {
-            "name": "KMPLoading",
-            "time_entries": [
-                {
-                    "days": 0,
-                    "end_time": "2021-02-21 12:50:28",
-                    "hours": 0,
-                    "minutes": 0,
-                    "seconds": 2,
-                    "start_time": "2021-02-21 12:50:26"
-                }
-            ]
         }
     ]
 }
