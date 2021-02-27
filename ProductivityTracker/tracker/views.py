@@ -1,4 +1,3 @@
-import winreg
 from itertools import count
 from ctypes.wintypes import DWORD
 from ctypes import byref, create_unicode_buffer, windll
@@ -6,118 +5,18 @@ from collections import namedtuple
 import pandas as pd
 import threading
 from django.shortcuts import render, HttpResponse, redirect
-import sys
+
 import pythoncom
-import win32gui
-import time
 from .activity import *
 import json
 import datetime
-import os
-import psutil
-import win32process
-import win32gui
-import time
-import pickle
-import wmi
-import re
-import schedule
-import time
+import win32gui,win32process,psutil,winreg
+import time,schedule,re,wmi,pickle
 from datetime import datetime as d
-import os
-import ctypes
-import psutil   
-
-
-def get_active_window():
-    _active_window_name = None
-    try:
-        if sys.platform in ['Windows', 'win32', 'cygwin']:
-            window = win32gui.GetForegroundWindow()
-            pid = win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow()) 
-            _active_window_name = psutil.Process(pid[-1]).name()
-        else:
-            print("sys.platform={platform} is not supported."
-              .format(platform=sys.platform))
-            print(sys.version)
-    except:
-            _active_window_name = 'Unknown'
-            return _active_window_name
-    return _active_window_name[0:-4] 
-
+import sys,ctypes,psutil,os
 
 val = ''
 fmval = ''
-
-
-def check():
-    if val == 'on':
-        return True
-    else:
-        return False
-
-
-def final(val,fmval):
-    if val == 'on':
-        t = True
-    else:
-        t = False
-    active_window_name = ""
-    activity_name = ""
-    start_time = datetime.datetime.now()
-    activeList = AcitivyList([])
-    first_time = True
-
-    try:
-        activeList.initialize_me()
-    except Exception:
-        print('No json')
-    m = 0
-    try:
-        while m < 5:
-            m = m+1
-            previous_site = ""
-            new_window_name = get_active_window()
-            if m == 4 and val == 'on':
-                m = 0
-            if val == 'off':
-                m = 5
-            focusMode(fmval)
-            # t=check()
-            if active_window_name != new_window_name:
-                print(active_window_name)
-                activity_name = active_window_name
-
-                if not first_time:
-                    end_time = datetime.datetime.now()
-                    time_entry = TimeEntry(start_time, end_time, 0, 0, 0, 0)
-                    time_entry._get_specific_times()
-
-                    exists = False
-                    for activity in activeList.activities:
-                        if activity.name == activity_name:
-                            exists = True
-                            activity.time_entries.append(time_entry)
-
-                    if not exists:
-                        activity = Activity(activity_name, [time_entry])
-                        activeList.activities.append(activity)
-                    with open('activities.json', 'w') as json_file:
-                        json.dump(activeList.serialize(), json_file,
-                                  indent=4, sort_keys=True)
-                        start_time = datetime.datetime.now()
-                first_time = False
-                active_window_name = new_window_name
-
-            time.sleep(1)
-
-    except KeyboardInterrupt:
-        with open('activities.json', 'w') as json_file:
-            json.dump(activeList.serialize(), json_file,
-                      indent=4, sort_keys=True)
-
-
-# -------------------------------------------------------------------------------------
 
 def home(request):
     name = []
@@ -176,7 +75,7 @@ def home(request):
             val = 'off'
             fmval='on'
             final(val,fmval)
-        elif v:
+        else:
             val = 'off'
             fmval='off'
             final(val,fmval)
@@ -185,6 +84,80 @@ def home(request):
         return render(request, 'home.html', context=context)
 
     return render(request, 'home.html', context=context)
+
+def get_active_window():
+    _active_window_name = None
+    try:
+        if sys.platform in ['Windows', 'win32', 'cygwin']:
+            window = win32gui.GetForegroundWindow()
+            pid = win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow()) 
+            _active_window_name = psutil.Process(pid[-1]).name()
+        else:
+            print("sys.platform={platform} is not supported."
+              .format(platform=sys.platform))
+            print(sys.version)
+    except:
+            _active_window_name = 'Unknown'
+            return _active_window_name
+    return _active_window_name[0:-4] 
+
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+
+def final(val,fmval):
+    if val == 'on':
+        t = True
+    else:
+        t = False
+    active_window_name = ""
+    activity_name = ""
+    start_time = datetime.datetime.now()
+    activeList = AcitivyList([])
+    first_time = True
+
+    try:
+        activeList.initialize_me()
+    except Exception:
+        print('No json')
+    m = 0
+    try:
+        while True:
+            new_window_name = get_active_window()
+            focusMode(fmval)
+            if active_window_name != new_window_name:
+                print(active_window_name)
+                activity_name = active_window_name
+
+                if not first_time:
+                    end_time = datetime.datetime.now()
+                    time_entry = TimeEntry(start_time, end_time, 0, 0, 0, 0)
+                    time_entry._get_specific_times()
+
+                    exists = False
+                    for activity in activeList.activities:
+                        if activity.name == activity_name:
+                            exists = True
+                            activity.time_entries.append(time_entry)
+
+                    if not exists:
+                        activity = Activity(activity_name, [time_entry])
+                        activeList.activities.append(activity)
+                    with open('activities.json', 'w') as json_file:
+                        json.dump(activeList.serialize(), json_file,
+                                  indent=4, sort_keys=True)
+                        start_time = datetime.datetime.now()
+                first_time = False
+                active_window_name = new_window_name
+
+            time.sleep(1)
+
+    except KeyboardInterrupt:
+        with open('activities.json', 'w') as json_file:
+            json.dump(activeList.serialize(), json_file,
+                      indent=4, sort_keys=True)
+
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
 
 def focusMode(val):
     pythoncom.CoInitialize()
@@ -199,17 +172,14 @@ def focusMode(val):
                 app_proccess_names.append(process.Name)
     
     #print(app_proccess_names)
-    while val=='on':
+    if val=='on':
         for application in app_proccess_names:
             if(application in (p.name() for p in psutil.process_iter())):
-                os.system('taskkill /im '+application) # select process by its name  
- 
-
-                
+                os.system('taskkill /im '+application) # select process by its name 
 
 
 # ----------------------------------------------------------------------------------------
-# -----------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
 
 def foo(hive, flag):
     aReg = winreg.ConnectRegistry(None, hive)
