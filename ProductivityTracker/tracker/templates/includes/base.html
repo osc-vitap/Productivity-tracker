@@ -23,16 +23,16 @@
             <a href="/" class="brand-logo">Productivity Tracker</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li class="{% if request.path == '/allapps/' %}active{% endif %}"><a href="/about">About</a></li>
+                <li class="{% if request.path == '/focus_mode/' %}active{% endif %}"><a href="/about">About</a></li>
                 <li class="{% if request.path == '/' %}active{% endif %}"><a href="/">Dashboard</a></li>
-                <li class="{% if request.path == '/allapps/' %}active{% endif %}"><a href="/allapps">Focus Mode Settings</a></li>
+                <li class="{% if request.path == '/focus_mode/' %}active{% endif %}"><a href="/focus_mode">Focus Mode Settings</a></li>
             </ul>
         </div>
     </nav>
     
     <ul class="sidenav" id="mobile-demo">
         <li class="{% if request.path == '/' %}active{% endif %}"><a href="/">Dashboard</a></li>
-        <li class="{% if request.path == '/allapps/' %}active{% endif %}"><a href="/allapps">Applications</a></li>
+        <li class="{% if request.path == '/focus_mode/' %}active{% endif %}"><a href="/focus_mode">Applications</a></li>
     </ul>
     
     {% block content %}
