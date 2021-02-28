@@ -328,3 +328,28 @@ def resetTracker(request):
         msg = 'Something went wrong !'
 
     return redirect('/', msg)
+
+
+def setTime(request):
+    if request.method == 'POST':
+        start_time = request.POST.get('start_time')  # 17:20
+        end_time = request.POST.get('end_time')  # 19:18
+        print(start_time, end_time)
+
+        # do stuff here
+    return redirect('/allapps/')
+
+
+def setWebsite(request):
+    if request.method == 'POST':
+        operation = request.POST.get('operation')
+        website = request.POST.get('url')  # Website url user has sent
+
+        if operation == 'Add Website':
+            # add here
+            print(website)
+        else:
+            # clear website data
+            print(website)
+
+    return redirect('/allapps/')
