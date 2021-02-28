@@ -19,19 +19,19 @@
                 <th>Application Name</th>
               </tr>
             </thead>
-
             <tbody>
               {% for app in apps %}
               <tr>
                 <th scope="row">
                   <p>
                     <label>
-                      <input type="checkbox" name="filters" value="{{app}}" />
+                      <input type="checkbox" name="filters" value="{{app}}" 
+                      {% if app in selectedApp %} checked {% endif %} />
                       <span></span>
                     </label>
                   </p>
                 </th>
-                <td>{{app}}</td>
+                <td>{{app}} </td>
               </tr>
               {% endfor %}
             </tbody>
