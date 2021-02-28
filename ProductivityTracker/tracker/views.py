@@ -28,6 +28,8 @@ import os
 val = ''
 fmval = ''
 
+def about_page(request):
+    return render(request,'about_page.html')
 
 def home(request):
     name = []
