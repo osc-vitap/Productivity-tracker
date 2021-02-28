@@ -10,13 +10,24 @@ import pythoncom
 from .activity import *
 import json
 import datetime
-import win32gui,win32process,psutil,winreg
-import time,schedule,re,wmi,pickle
+import win32gui
+import win32process
+import psutil
+import winreg
+import time
+import schedule
+import re
+import wmi
+import pickle
 from datetime import datetime as d
-import sys,ctypes,psutil,os
+import sys
+import ctypes
+import psutil
+import os
 
 val = ''
 fmval = ''
+
 
 def home(request):
     name = []
@@ -63,48 +74,68 @@ def home(request):
         v = request.POST.get('start')
         fmv = request.POST.get('focusmode')
 
-        if v == 'on' and fmv =='on':
+        settings = {
+            'tracking': v,
+            'focus': fmv
+        }
+
+        with open('settings.pkl', 'wb') as file:
+            pickle.dump(settings, file)
+
+        if v == 'on' and fmv == 'on':
             val = 'on'
-            fmval='on'
-            final(val,fmval)
-        elif v == 'on' and fmv =='off':
+            fmval = 'on'
+            final(val, fmval)
+        elif v == 'on' and fmv == 'off':
             val = 'on'
-            fmval='off'
-            final(val,fmval)
-        elif v == 'off' and fmv =='on':
+            fmval = 'off'
+            final(val, fmval)
+        elif v == 'off' and fmv == 'on':
             val = 'off'
-            fmval='on'
-            final(val,fmval)
+            fmval = 'on'
+            final(val, fmval)
         else:
             val = 'off'
-            fmval='off'
-            final(val,fmval)
+            fmval = 'off'
+            final(val, fmval)
 
-
+        context['setting'] = settings
         return render(request, 'home.html', context=context)
 
+    settings = []
+    try:
+        pythoncom.CoInitialize()
+        with open('settings.pkl', 'rb') as file:
+            settings = pickle.load(file)
+    except:
+        print("\nsomething went wrong\n")
+
+    context['setting'] = settings
     return render(request, 'home.html', context=context)
+
 
 def get_active_window():
     _active_window_name = None
     try:
         if sys.platform in ['Windows', 'win32', 'cygwin']:
             window = win32gui.GetForegroundWindow()
-            pid = win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow()) 
+            pid = win32process.GetWindowThreadProcessId(
+                win32gui.GetForegroundWindow())
             _active_window_name = psutil.Process(pid[-1]).name()
         else:
             print("sys.platform={platform} is not supported."
-              .format(platform=sys.platform))
+                  .format(platform=sys.platform))
             print(sys.version)
     except:
-            _active_window_name = 'Unknown'
-            return _active_window_name
-    return _active_window_name[0:-4] 
+        _active_window_name = 'Unknown'
+        return _active_window_name
+    return _active_window_name[0:-4]
 
 # ----------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------
 
-def final(val,fmval):
+
+def final(val, fmval):
     if val == 'on':
         t = True
     else:
@@ -159,23 +190,25 @@ def final(val,fmval):
 # ----------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------
 
+
 def focusMode(val):
     pythoncom.CoInitialize()
-    data=[]
-    with open('focusModeApps.pkl','rb') as file:
-            data = pickle.load(file)
+    data = []
+    with open('focusModeApps.pkl', 'rb') as file:
+        data = pickle.load(file)
     f = wmi.WMI()
-    app_proccess_names=[]
+    app_proccess_names = []
     for process in f.Win32_Process():
         for i in data:
-            if re.search(process.Name[:-4].lower(),i.lower()):
+            if re.search(process.Name[:-4].lower(), i.lower()):
                 app_proccess_names.append(process.Name)
-    
-    #print(app_proccess_names)
-    if val=='on':
+
+    # print(app_proccess_names)
+    if val == 'on':
         for application in app_proccess_names:
             if(application in (p.name() for p in psutil.process_iter())):
-                os.system('taskkill /im '+application) # select process by its name 
+                # select process by its name
+                os.system('taskkill /im '+application)
 
 
 # ----------------------------------------------------------------------------------------
@@ -219,13 +252,11 @@ def about(request):
     if request.method == 'POST':
         # use filters var here to process
         data = request.POST.getlist('filters')
-        #print(data)
-        with open('focusModeApps.pkl','wb') as file:
-            pickle.dump(data,file)
-        
-        #print(data)
+        # print(data)
+        with open('focusModeApps.pkl', 'wb') as file:
+            pickle.dump(data, file)
 
-        
+        # print(data)
 
     software_list = foo(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_32KEY) + foo(
         winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY) + foo(winreg.HKEY_CURRENT_USER, 0)
@@ -234,7 +265,15 @@ def about(request):
         installed_apps.append(software['name'])
 
     apps = sorted(installed_apps)
-    context = {'apps': apps}
+    data = []
+    try:
+        pythoncom.CoInitialize()
+        with open('focusModeApps.pkl', 'rb') as file:
+            data = pickle.load(file)
+    except:
+        print("\nsomething went wrong\n")
+
+    context = {'apps': apps, 'selectedApp': data}
     # for app in apps:
     # print app.InstalledProductName
     # apps[0].InstalledProductName
