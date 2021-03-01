@@ -124,7 +124,8 @@ def get_active_window():
     try:
         if sys.platform in ["Windows", "win32", "cygwin"]:
             window = win32gui.GetForegroundWindow()
-            pid = win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow())
+            pid = win32process.GetWindowThreadProcessId(
+                win32gui.GetForegroundWindow())
             _active_window_name = psutil.Process(pid[-1]).name()
         else:
             print(
@@ -193,7 +194,8 @@ def final(val, fmval):
 
     except KeyboardInterrupt:
         with open("activities.json", "w") as json_file:
-            json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)
+            json.dump(activeList.serialize(), json_file,
+                      indent=4, sort_keys=True)
 
 
 # ----------------------------------------------------------------------------------------
@@ -245,11 +247,13 @@ def foo(hive, flag):
             software["name"] = winreg.QueryValueEx(asubkey, "DisplayName")[0]
 
             try:
-                software["version"] = winreg.QueryValueEx(asubkey, "DisplayVersion")[0]
+                software["version"] = winreg.QueryValueEx(
+                    asubkey, "DisplayVersion")[0]
             except EnvironmentError:
                 software["version"] = "undefined"
             try:
-                software["publisher"] = winreg.QueryValueEx(asubkey, "Publisher")[0]
+                software["publisher"] = winreg.QueryValueEx(
+                    asubkey, "Publisher")[0]
             except EnvironmentError:
                 software["publisher"] = "undefined"
             software_list.append(software)
@@ -359,16 +363,16 @@ def setTime(request):
     return redirect("/focus_mode/")
 
 
-def setWebsite(request):
-    if request.method == "POST":
-        operation = request.POST.get("operation")
-        website = request.POST.get("url")  # Website url user has sent
+# def setWebsite(request):
+#     if request.method == 'POST':
+#         operation = request.POST.get('operation')
+#         website = request.POST.get('url')  # Website url user has sent
 
-        if operation == "Add Website":
-            # add here
-            print(website)
-        else:
-            # clear website data
-            print(website)
+#         if operation == 'Add Website':
+#             # add here
+#             print(website)
+#         else:
+#             # clear website data
+#             print(website)
 
-    return redirect("/focus_mode/")
+#     return redirect('/focus_mode/')
