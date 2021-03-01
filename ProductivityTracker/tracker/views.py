@@ -213,7 +213,6 @@ def focusMode(val):
         for i in data:
             if re.search(process.Name[:-4].lower(), i.lower()):
                 app_proccess_names.append(process.Name)
-    print("Terminating Apps")
     # print(app_proccess_names)
     if val == "on":
         for application in app_proccess_names:
@@ -299,7 +298,7 @@ def about(request):
     except:
         print("\nSchedule Time not found.\n")
 
-    context = {"apps": apps, "selectedApp": data, 'start_time': '', 'end_time': }
+    context = {"apps": apps, "selectedApp": data, 'start_time': '', 'end_time': ''}
 
     if len(schedulertime) > 0:
         startH = schedulertime[0:2]
