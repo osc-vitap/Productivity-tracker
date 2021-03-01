@@ -387,27 +387,28 @@ def setTime(request):
     try:
         with open("schedulerTiming.pkl", "rb") as file:
             schedulertime = pickle.load(file)
+
+        startH = int(schedulertime[0:2])
+        startM = int(schedulertime[3:5])
+        endH = int(schedulertime[5:7])
+        endM = int(schedulertime[8:])
+
+        # schedule.every().day.at('12:17').do(focusMode2(startH,startM,endH,endM))
+        # schedule.every(1).to(2).seconds.do(focusMode2(startH,startM,endH,endM))
+
+        print(startH, startM, endH, endM)
+        focusMode2(startH, startM, endH, endM)
+        # while True:
+        #     schedule.run_pending()
+        #     time.sleep(1)
+
+        start_time = startH + ":" + startM
+        end_time = endH + ":" + endM
+
+        return redirect("/focus_mode/")
     except:
         print("\nSchedule Time not found.\n")
-
-    startH = int(schedulertime[0:2])
-    startM = int(schedulertime[3:5])
-    endH = int(schedulertime[5:7])
-    endM = int(schedulertime[8:])
-
-    # schedule.every().day.at('12:17').do(focusMode2(startH,startM,endH,endM))
-    # schedule.every(1).to(2).seconds.do(focusMode2(startH,startM,endH,endM))
-
-    print(startH, startM, endH, endM)
-    focusMode2(startH, startM, endH, endM)
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
-
-    start_time = startH + ":" + startM
-    end_time = endH + ":" + endM
-
-    return redirect("/focus_mode/")
+        return redirect("/focus_mode/")
 
 
 def focusMode2(startH, startM, endH, endM):
