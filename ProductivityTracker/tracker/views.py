@@ -25,8 +25,12 @@ import ctypes
 import psutil
 import os
 
-val = ''
-fmval = ''
+val = ""
+fmval = ""
+
+
+def about_page(request):
+    return render(request, "about_page.html")
 
 
 def home(request):
@@ -39,104 +43,109 @@ def home(request):
     noActivity = False
 
     try:
-        myjsondata = open('activities.json', 'r')
+        myjsondata = open("activities.json", "r")
         jsondata = myjsondata.read()
         obj = json.loads(jsondata)
     except:
         noActivity = True
 
     if noActivity == False:
-        for l in obj['activities']:
+        for l in obj["activities"]:
             t = 0
-            name.append(l['name'][:65])
-            for k in l['time_entries']:
-                time = int(k['days'])*24*60+int(k['minutes']) + \
-                    int(k['hours'])*60+(int(k['seconds'])/60)
-                t = t+time
+            name.append(l["name"][:65])
+            for k in l["time_entries"]:
+                time = (
+                    int(k["days"]) * 24 * 60
+                    + int(k["minutes"])
+                    + int(k["hours"]) * 60
+                    + (int(k["seconds"]) / 60)
+                )
+                t = t + time
 
             s = str(t)
             time1.append(s[:5])
 
-            if len(l['name'][:65]) > 0:
+            if len(l["name"][:65]) > 0:
                 n = []
-                n.append(idx+1)
-                n.append(l['name'][:65])
+                n.append(idx + 1)
+                n.append(l["name"][:65])
                 n.append(s[:5])
                 table.append(n)
                 idx = idx + 1
 
             t = 0
-    context = {'name': name, 'time': time1, 'table': table}
+    context = {"name": name, "time": time1, "table": table}
 
-    val = 'off'
-    fmval = 'off'
-    if request.method == 'POST':
-        v = request.POST.get('start')
-        fmv = request.POST.get('focusmode')
+    val = "off"
+    fmval = "off"
+    if request.method == "POST":
+        v = request.POST.get("start")
+        fmv = request.POST.get("focusmode")
 
-        settings = {
-            'tracking': v,
-            'focus': fmv
-        }
+        settings = {"tracking": v, "focus": fmv}
 
-        with open('settings.pkl', 'wb') as file:
+        with open("settings.pkl", "wb") as file:
             pickle.dump(settings, file)
 
-        if v == 'on' and fmv == 'on':
-            val = 'on'
-            fmval = 'on'
+        if v == "on" and fmv == "on":
+            val = "on"
+            fmval = "on"
             final(val, fmval)
-        elif v == 'on' and fmv == 'off':
-            val = 'on'
-            fmval = 'off'
+        elif v == "on" and fmv == "off":
+            val = "on"
+            fmval = "off"
             final(val, fmval)
-        elif v == 'off' and fmv == 'on':
-            val = 'off'
-            fmval = 'on'
+        elif v == "off" and fmv == "on":
+            val = "off"
+            fmval = "on"
             final(val, fmval)
         else:
-            val = 'off'
-            fmval = 'off'
+            val = "off"
+            fmval = "off"
             final(val, fmval)
 
-        context['setting'] = settings
-        return render(request, 'home.html', context=context)
+        context["setting"] = settings
+        return render(request, "home.html", context=context)
 
     settings = []
     try:
         pythoncom.CoInitialize()
-        with open('settings.pkl', 'rb') as file:
+        with open("settings.pkl", "rb") as file:
             settings = pickle.load(file)
     except:
         print("\nsomething went wrong\n")
 
-    context['setting'] = settings
-    return render(request, 'home.html', context=context)
+    context["setting"] = settings
+    return render(request, "home.html", context=context)
 
 
 def get_active_window():
     _active_window_name = None
     try:
-        if sys.platform in ['Windows', 'win32', 'cygwin']:
+        if sys.platform in ["Windows", "win32", "cygwin"]:
             window = win32gui.GetForegroundWindow()
             pid = win32process.GetWindowThreadProcessId(
                 win32gui.GetForegroundWindow())
             _active_window_name = psutil.Process(pid[-1]).name()
         else:
-            print("sys.platform={platform} is not supported."
-                  .format(platform=sys.platform))
+            print(
+                "sys.platform={platform} is not supported.".format(
+                    platform=sys.platform
+                )
+            )
             print(sys.version)
     except:
-        _active_window_name = 'Unknown'
+        _active_window_name = "Unknown"
         return _active_window_name
     return _active_window_name[0:-4]
+
 
 # ----------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------
 
 
 def final(val, fmval):
-    if val == 'on':
+    if val == "on":
         t = True
     else:
         t = False
@@ -149,7 +158,7 @@ def final(val, fmval):
     try:
         activeList.initialize_me()
     except Exception:
-        print('No json')
+        print("No json")
     m = 0
     try:
         while True:
@@ -173,9 +182,10 @@ def final(val, fmval):
                     if not exists:
                         activity = Activity(activity_name, [time_entry])
                         activeList.activities.append(activity)
-                    with open('activities.json', 'w') as json_file:
-                        json.dump(activeList.serialize(), json_file,
-                                  indent=4, sort_keys=True)
+                    with open("activities.json", "w") as json_file:
+                        json.dump(
+                            activeList.serialize(), json_file, indent=4, sort_keys=True
+                        )
                         start_time = datetime.datetime.now()
                 first_time = False
                 active_window_name = new_window_name
@@ -183,9 +193,10 @@ def final(val, fmval):
             time.sleep(1)
 
     except KeyboardInterrupt:
-        with open('activities.json', 'w') as json_file:
+        with open("activities.json", "w") as json_file:
             json.dump(activeList.serialize(), json_file,
                       indent=4, sort_keys=True)
+
 
 # ----------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------
@@ -194,7 +205,7 @@ def final(val, fmval):
 def focusMode(val):
     pythoncom.CoInitialize()
     data = []
-    with open('focusModeApps.pkl', 'rb') as file:
+    with open("focusModeApps.pkl", "rb") as file:
         data = pickle.load(file)
     f = wmi.WMI()
     app_proccess_names = []
@@ -204,20 +215,25 @@ def focusMode(val):
                 app_proccess_names.append(process.Name)
 
     # print(app_proccess_names)
-    if val == 'on':
+    if val == "on":
         for application in app_proccess_names:
-            if(application in (p.name() for p in psutil.process_iter())):
+            if application in (p.name() for p in psutil.process_iter()):
                 # select process by its name
-                os.system('taskkill /im '+application)
+                os.system("taskkill /im " + application)
 
 
 # ----------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------
+
 
 def foo(hive, flag):
     aReg = winreg.ConnectRegistry(None, hive)
-    aKey = winreg.OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
-                          0, winreg.KEY_READ | flag)
+    aKey = winreg.OpenKey(
+        aReg,
+        r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
+        0,
+        winreg.KEY_READ | flag,
+    )
 
     count_subkey = winreg.QueryInfoKey(aKey)[0]
 
@@ -228,18 +244,18 @@ def foo(hive, flag):
         try:
             asubkey_name = winreg.EnumKey(aKey, i)
             asubkey = winreg.OpenKey(aKey, asubkey_name)
-            software['name'] = winreg.QueryValueEx(asubkey, "DisplayName")[0]
+            software["name"] = winreg.QueryValueEx(asubkey, "DisplayName")[0]
 
             try:
-                software['version'] = winreg.QueryValueEx(
+                software["version"] = winreg.QueryValueEx(
                     asubkey, "DisplayVersion")[0]
             except EnvironmentError:
-                software['version'] = 'undefined'
+                software["version"] = "undefined"
             try:
-                software['publisher'] = winreg.QueryValueEx(
+                software["publisher"] = winreg.QueryValueEx(
                     asubkey, "Publisher")[0]
             except EnvironmentError:
-                software['publisher'] = 'undefined'
+                software["publisher"] = "undefined"
             software_list.append(software)
         except EnvironmentError:
             continue
@@ -249,75 +265,82 @@ def foo(hive, flag):
 
 def about(request):
 
-    if request.method == 'POST':
+    if request.method == "POST":
         # use filters var here to process
-        data = request.POST.getlist('filters')
+        data = request.POST.getlist("filters")
         # print(data)
-        with open('focusModeApps.pkl', 'wb') as file:
+        with open("focusModeApps.pkl", "wb") as file:
             pickle.dump(data, file)
 
         # print(data)
 
-    software_list = foo(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_32KEY) + foo(
-        winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY) + foo(winreg.HKEY_CURRENT_USER, 0)
+    software_list = (
+        foo(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_32KEY)
+        + foo(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY)
+        + foo(winreg.HKEY_CURRENT_USER, 0)
+    )
     installed_apps = []
     for software in software_list:
-        installed_apps.append(software['name'])
+        installed_apps.append(software["name"])
 
     apps = sorted(installed_apps)
     data = []
     try:
         pythoncom.CoInitialize()
-        with open('focusModeApps.pkl', 'rb') as file:
+        with open("focusModeApps.pkl", "rb") as file:
             data = pickle.load(file)
     except:
         print("\nsomething went wrong\n")
 
-    context = {'apps': apps, 'selectedApp': data}
+    context = {"apps": apps, "selectedApp": data}
     # for app in apps:
     # print app.InstalledProductName
     # apps[0].InstalledProductName
-    return render(request, 'about.html', context)
+    return render(request, "about.html", context)
 
 
 def activity_tracks(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         try:
             if os.path.exists("activities.json"):
                 os.remove("activities.json")
             else:
-                print('---------------------')
+                print("---------------------")
         except:
-            return render(request, 'tracker.html')
+            return render(request, "tracker.html")
 
     try:
-        myjsondata = open('activities.json', 'r')
+        myjsondata = open("activities.json", "r")
         jsondata = myjsondata.read()
         obj = json.loads(jsondata)
     except:
 
-        return render(request, 'tracker.html')
+        return render(request, "tracker.html")
     name = []
     time1 = []
 
-    for l in obj['activities']:
+    for l in obj["activities"]:
         t = 0
-        name.append(l['name'][:65])
-        for k in l['time_entries']:
-            time = int(k['days'])*24*60+int(k['minutes']) + \
-                int(k['hours'])*60+(int(k['seconds'])/60)
-            t = t+time
+        name.append(l["name"][:65])
+        for k in l["time_entries"]:
+            time = (
+                int(k["days"]) * 24 * 60
+                + int(k["minutes"])
+                + int(k["hours"]) * 60
+                + (int(k["seconds"]) / 60)
+            )
+            t = t + time
 
         s = str(t)
         time1.append(s[:5])
         t = 0
 
-    context = {'name': name, 'time': time1}
-    return render(request, 'tracker.html', context)
+    context = {"name": name, "time": time1}
+    return render(request, "tracker.html", context)
 
 
 def resetTracker(request):
-    msg = ''
+    msg = ""
     try:
         if os.path.exists("activities.json"):
             os.remove("activities.json")
@@ -325,19 +348,19 @@ def resetTracker(request):
         else:
             msg = "No track activity found to reset !"
     except:
-        msg = 'Something went wrong !'
+        msg = "Something went wrong !"
 
-    return redirect('/', msg)
+    return redirect("/", msg)
 
 
 def setTime(request):
-    if request.method == 'POST':
-        start_time = request.POST.get('start_time')  # 17:20
-        end_time = request.POST.get('end_time')  # 19:18
+    if request.method == "POST":
+        start_time = request.POST.get("start_time")  # 17:20
+        end_time = request.POST.get("end_time")  # 19:18
         print(start_time, end_time)
 
         # do stuff here
-    return redirect('/allapps/')
+    return redirect("/focus_mode/")
 
 
 # def setWebsite(request):

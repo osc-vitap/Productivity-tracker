@@ -5,9 +5,10 @@ from .activity import *
 import json
 import datetime
 import sys
-if sys.platform in ['Windows', 'win32', 'cygwin']:
+
+if sys.platform in ["Windows", "win32", "cygwin"]:
     import win32gui
-    
+
 
 active_window_name = ""
 activity_name = ""
@@ -16,46 +17,39 @@ activeList = AcitivyList([])
 first_time = True
 
 
-
-
 def get_active_window():
     _active_window_name = None
-    if sys.platform in ['Windows', 'win32', 'cygwin']:
+    if sys.platform in ["Windows", "win32", "cygwin"]:
         window = win32gui.GetForegroundWindow()
         _active_window_name = win32gui.GetWindowText(window)
-    elif sys.platform in ['Mac', 'darwin', 'os2', 'os2emx']:
-        _active_window_name = (NSWorkspace.sharedWorkspace()
-                               .activeApplication()['NSApplicationName'])
+    elif sys.platform in ["Mac", "darwin", "os2", "os2emx"]:
+        _active_window_name = NSWorkspace.sharedWorkspace().activeApplication()[
+            "NSApplicationName"
+        ]
     else:
-        print("sys.platform={platform} is not supported."
-              .format(platform=sys.platform))
+        print("sys.platform={platform} is not supported.".format(platform=sys.platform))
         print(sys.version)
     return _active_window_name
-
-
-
-
 
 
 try:
     activeList.initialize_me()
 except Exception:
-    print('No json')
+    print("No json")
 
 
 try:
     while True:
         previous_site = ""
-        if sys.platform not in ['linux', 'linux2']:
+        if sys.platform not in ["linux", "linux2"]:
             new_window_name = get_active_window()
             # if 'Google Chrome' in new_window_name:
             #     new_window_name = url_to_name(get_chrome_url())
-        if sys.platform in ['linux', 'linux2']:
+        if sys.platform in ["linux", "linux2"]:
             new_window_name = l.get_active_window_x()
             # if 'Google Chrome' in new_window_name:
             #     new_window_name = l.get_chrome_url_x()
 
-        
         if active_window_name != new_window_name:
             print(active_window_name)
             activity_name = active_window_name
@@ -74,15 +68,16 @@ try:
                 if not exists:
                     activity = Activity(activity_name, [time_entry])
                     activeList.activities.append(activity)
-                with open('activities.json', 'w') as json_file:
-                    json.dump(activeList.serialize(), json_file,
-                              indent=4, sort_keys=True)
+                with open("activities.json", "w") as json_file:
+                    json.dump(
+                        activeList.serialize(), json_file, indent=4, sort_keys=True
+                    )
                     start_time = datetime.datetime.now()
             first_time = False
             active_window_name = new_window_name
 
         time.sleep(1)
-    
+
 except KeyboardInterrupt:
-    with open('activities.json', 'w') as json_file:
+    with open("activities.json", "w") as json_file:
         json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)
