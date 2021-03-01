@@ -213,7 +213,7 @@ def focusMode(val):
         for i in data:
             if re.search(process.Name[:-4].lower(), i.lower()):
                 app_proccess_names.append(process.Name)
-
+    print("Terminating Apps")
     # print(app_proccess_names)
     if val == "on":
         for application in app_proccess_names:
@@ -354,25 +354,48 @@ def resetTracker(request):
 
 
 def setTime(request):
+    schedulertime=""#10:1214:15
     if request.method == "POST":
         start_time = request.POST.get("start_time")  # 17:20
         end_time = request.POST.get("end_time")  # 19:18
         print(start_time, end_time)
+        if start_time != None and end_time != None:
+            print(start_time,end_time)
+            schedulertime=start_time+end_time
+            with open("schedulerTiming.pkl", "wb") as file:
+                pickle.dump(schedulertime, file)
+    try:
+        with open("schedulerTiming.pkl", "rb") as file:
+            schedulertime = pickle.load(file)
+    except:
+        print("\nSchedule Time not found.\n")        
+        
+    startH=int(schedulertime[0:2])
+    startM=int(schedulertime[3:5])
+    endH=int(schedulertime[5:7])
+    endM=int(schedulertime[8:])
+    
+    #schedule.every().day.at('12:17').do(focusMode2(startH,startM,endH,endM))
+    #schedule.every(1).to(2).seconds.do(focusMode2(startH,startM,endH,endM))
 
-        # do stuff here
+    print(startH,startM,endH,endM)
+    focusMode2(startH,startM,endH,endM)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
+
+
     return redirect("/focus_mode/")
 
+def focusMode2(startH,startM,endH,endM):
+    while True:
+        if ( d(d.now().year, d.now().month, d.now().day, startH, startM)
+                < d.now()
+                < d(d.now().year, d.now().month, d.now().day, endH, endM)):
+            print("In focusMode2")
+            focusMode('on')
+        elif d.now() > d(d.now().year, d.now().month, d.now().day, endH, endM):
+            return
 
-# def setWebsite(request):
-#     if request.method == 'POST':
-#         operation = request.POST.get('operation')
-#         website = request.POST.get('url')  # Website url user has sent
 
-#         if operation == 'Add Website':
-#             # add here
-#             print(website)
-#         else:
-#             # clear website data
-#             print(website)
 
-#     return redirect('/focus_mode/')
