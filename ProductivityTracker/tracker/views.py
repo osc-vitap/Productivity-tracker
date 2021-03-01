@@ -375,4 +375,4 @@ def setTime(request):
 #             # clear website data
 #             print(website)
 
-#     return redirect('/allapps/')
+#     return redirect('/focus_mode/')

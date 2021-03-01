@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('allapps/', views.about, name='allapps'),
+    path('focus_mode/', views.about, name='focus_mode'),
     path('tracker/', views.activity_tracks, name='tracker'),
     path('resetTracker/', views.resetTracker, name='resetTracker'),
     path('setTime', views.setTime, name='setTime'),
