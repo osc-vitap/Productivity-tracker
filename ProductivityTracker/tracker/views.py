@@ -213,7 +213,6 @@ def focusMode(val):
         for i in data:
             if re.search(process.Name[:-4].lower(), i.lower()):
                 app_proccess_names.append(process.Name)
-    print("Terminating Apps")
     # print(app_proccess_names)
     if val == "on":
         for application in app_proccess_names:
@@ -292,7 +291,26 @@ def about(request):
     except:
         print("\nsomething went wrong\n")
 
-    context = {"apps": apps, "selectedApp": data}
+    schedulertime = ""
+    try:
+        with open("schedulerTiming.pkl", "rb") as file:
+            schedulertime = pickle.load(file)
+    except:
+        print("\nSchedule Time not found.\n")
+
+    context = {"apps": apps, "selectedApp": data, 'start_time': '', 'end_time': ''}
+
+    if len(schedulertime) > 0:
+        startH = schedulertime[0:2]
+        startM = schedulertime[3:5]
+        endH = schedulertime[5:7]
+        endM = schedulertime[8:]
+
+        start_time = startH + ":" + startM
+        end_time = endH + ":" + endM
+
+        context['start_time'] = start_time
+        context['end_time'] = end_time
     # for app in apps:
     # print app.InstalledProductName
     # apps[0].InstalledProductName
@@ -354,47 +372,44 @@ def resetTracker(request):
 
 
 def setTime(request):
-    schedulertime=""#10:1214:15
+    schedulertime = ""  # 10:1214:15
     if request.method == "POST":
         start_time = request.POST.get("start_time")  # 17:20
         end_time = request.POST.get("end_time")  # 19:18
         print(start_time, end_time)
         if start_time != None and end_time != None:
-            print(start_time,end_time)
-            schedulertime=start_time+end_time
+            print(start_time, end_time)
+            schedulertime = start_time+end_time
             with open("schedulerTiming.pkl", "wb") as file:
                 pickle.dump(schedulertime, file)
     try:
         with open("schedulerTiming.pkl", "rb") as file:
             schedulertime = pickle.load(file)
     except:
-        print("\nSchedule Time not found.\n")        
-        
-    startH=int(schedulertime[0:2])
-    startM=int(schedulertime[3:5])
-    endH=int(schedulertime[5:7])
-    endM=int(schedulertime[8:])
-    
-    #schedule.every().day.at('12:17').do(focusMode2(startH,startM,endH,endM))
-    #schedule.every(1).to(2).seconds.do(focusMode2(startH,startM,endH,endM))
+        print("\nSchedule Time not found.\n")
 
-    print(startH,startM,endH,endM)
-    focusMode2(startH,startM,endH,endM)
+    startH = int(schedulertime[0:2])
+    startM = int(schedulertime[3:5])
+    endH = int(schedulertime[5:7])
+    endM = int(schedulertime[8:])
+
+    # schedule.every().day.at('12:17').do(focusMode2(startH,startM,endH,endM))
+    # schedule.every(1).to(2).seconds.do(focusMode2(startH,startM,endH,endM))
+
+    print(startH, startM, endH, endM)
+    focusMode2(startH, startM, endH, endM)
     # while True:
     #     schedule.run_pending()
     #     time.sleep(1)
 
-
     return redirect("/focus_mode/")
 
-def focusMode2(startH,startM,endH,endM):
+
+def focusMode2(startH, startM, endH, endM):
     while True:
-        if ( d(d.now().year, d.now().month, d.now().day, startH, startM)
+        if (d(d.now().year, d.now().month, d.now().day, startH, startM)
                 < d.now()
                 < d(d.now().year, d.now().month, d.now().day, endH, endM)):
             focusMode('on')
         elif d.now() > d(d.now().year, d.now().month, d.now().day, endH, endM):
             return
-
-
-

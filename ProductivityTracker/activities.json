@@ -505,6 +505,19 @@
                     "start_time": "2021-02-28 18:29:44"
                 }
             ]
+        },
+        {
+            "name": "firefox",
+            "time_entries": [
+                {
+                    "days": 0,
+                    "end_time": "2021-03-01 15:26:36",
+                    "hours": 0,
+                    "minutes": 0,
+                    "seconds": 17,
+                    "start_time": "2021-03-01 15:26:18"
+                }
+            ]
         }
     ]
 }
