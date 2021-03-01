@@ -392,7 +392,6 @@ def focusMode2(startH,startM,endH,endM):
         if ( d(d.now().year, d.now().month, d.now().day, startH, startM)
                 < d.now()
                 < d(d.now().year, d.now().month, d.now().day, endH, endM)):
-            print("In focusMode2")
             focusMode('on')
         elif d.now() > d(d.now().year, d.now().month, d.now().day, endH, endM):
             return
