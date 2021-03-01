@@ -14,11 +14,11 @@
           >
           <div class="row">
             <div class="input-field col s6">
-              <input id="start_time" type="text" class="timepicker" name="start_time" required>
+              <input id="start_time" value="{{start_time}}" type="text" class="timepicker" name="start_time" required>
               <label for="start_time">Enter Start Time</label>
             </div>
             <div class="input-field col s6">
-              <input id="end_time" type="text" class="timepicker" name="end_time" required>
+              <input id="end_time" type="text" value="{{end_time}}" class="timepicker" name="end_time" required>
               <label for="end_time">Enter End Time</label>
             </div>
           </div>
@@ -78,5 +78,6 @@
     }
     let instances = M.Timepicker.init(elems, options);
   });
+
 </script>
 {% endblock content %}
