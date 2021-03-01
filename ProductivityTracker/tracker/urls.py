@@ -8,5 +8,4 @@ urlpatterns = [
     path('tracker/', views.activity_tracks, name='tracker'),
     path('resetTracker/', views.resetTracker, name='resetTracker'),
     path('setTime', views.setTime, name='setTime'),
-    path('setWebsite', views.setWebsite, name='setWebsite')
 ]

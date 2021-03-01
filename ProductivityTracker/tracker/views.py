@@ -340,16 +340,16 @@ def setTime(request):
     return redirect('/allapps/')
 
 
-def setWebsite(request):
-    if request.method == 'POST':
-        operation = request.POST.get('operation')
-        website = request.POST.get('url')  # Website url user has sent
+# def setWebsite(request):
+#     if request.method == 'POST':
+#         operation = request.POST.get('operation')
+#         website = request.POST.get('url')  # Website url user has sent
 
-        if operation == 'Add Website':
-            # add here
-            print(website)
-        else:
-            # clear website data
-            print(website)
+#         if operation == 'Add Website':
+#             # add here
+#             print(website)
+#         else:
+#             # clear website data
+#             print(website)
 
-    return redirect('/allapps/')
+#     return redirect('/allapps/')

@@ -14,11 +14,11 @@
           >
           <div class="row">
             <div class="input-field col s6">
-              <input id="start_time" type="text" class="timepicker" name="start_time" required>
+              <input id="start_time" type="text" class="timepicker" name="start_time">
               <label for="start_time">Enter Start Time</label>
             </div>
             <div class="input-field col s6">
-              <input id="end_time" type="text" class="timepicker" name="end_time" required>
+              <input id="end_time" type="text" class="timepicker" name="end_time">
               <label for="end_time">Enter End Time</label>
             </div>
           </div>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="row">
-  <div class="col s12 m12" style="overflow: hidden !important;">
+  <div class="col s12 m12">
     <div class="card darken-1">
       <div class="card-content">
         <form action="" method="POST">
@@ -40,7 +40,6 @@
               Apply Filters
             </button></span
           >
-          <div style="height: 45vh; overflow-y: auto;">
           <table class="responsive-table striped">
             <thead>
               <tr>
@@ -65,53 +64,9 @@
               {% endfor %}
             </tbody>
           </table>
-        </div>
         </form>
       </div>
     </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col s12 m12" style="overflow: hidden !important;">
-    <div class="card darken-1">
-      <form action="/setWebsite" method="POST">
-      <div class="card-content">
-          {% csrf_token %}
-          <div class="card-title"
-            >Websites to be Restricted in Focus Mode : 
-            <div class="row">
-            <div class="input-field col s9">
-              <input id="url" type="url" name="url">
-              <label for="url">Enter website</label>
-            </div>
-            <div class="col s3">
-              <input type="submit" name="operation" value="Add Website" class="waves-effect waves-light green darken-1 btn">
-              <input type="submit" name="operation" value="Clear" class="waves-effect waves-light red darken-1 btn">
-            </div>
-          </div>
-            </div
-          >
-          <div style="height: 45vh; overflow-y: auto;">
-          <table class="responsive-table striped">
-            <thead>
-              <tr>
-                <th>Website Domain</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for app in apps %}
-              <tr>
-                <td>{{app}} </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </form>
   </div>
 </div>
 <script>
