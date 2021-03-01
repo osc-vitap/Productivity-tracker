@@ -404,9 +404,6 @@ def setTime(request):
     #     schedule.run_pending()
     #     time.sleep(1)
 
-    start_time = startH + ":" + startM
-    end_time = endH + ":" + endM
-
     return redirect("/focus_mode/")
 
 
