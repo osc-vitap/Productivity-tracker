@@ -1,6 +1,6 @@
 # Productivity tracker
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center">
@@ -46,6 +46,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/iamvineettiwari/"><img src="https://avatars.githubusercontent.com/u/47891034?v=4?s=100" width="100px;" alt=""/><br /><sub><b>VINEET TIWARI</b></sub></a><br /><a href="#design-iamvineettiwari" title="Design">🎨</a> <a href="https://github.com/Open-Source-Community-VIT-AP/Productivity-tracker/commits?author=iamvineettiwari" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Susmita-Pal"><img src="https://avatars.githubusercontent.com/u/55327557?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Susmita Pal</b></sub></a><br /><a href="https://github.com/Open-Source-Community-VIT-AP/Productivity-tracker/commits?author=Susmita-Pal" title="Code">💻</a></td>
   </tr>
 </table>
 
