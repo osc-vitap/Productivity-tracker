@@ -1,4 +1,7 @@
 # Productivity tracker
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center">
     <img src="assets\Logo.PNG" alt="Logo" width = "500px">
@@ -32,3 +35,23 @@ will be displayed for user to see and download
 
 Productivity-tracker is under The MIT License. Read the [LICENSE](https://github.com/Open-Source-Community-VIT-AP/Productivity-tracker/blob/master/LICENSE) file for more information.
 
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/iamvineettiwari/"><img src="https://avatars.githubusercontent.com/u/47891034?v=4?s=100" width="100px;" alt=""/><br /><sub><b>VINEET TIWARI</b></sub></a><br /><a href="#design-iamvineettiwari" title="Design">🎨</a> <a href="https://github.com/Open-Source-Community-VIT-AP/Productivity-tracker/commits?author=iamvineettiwari" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
