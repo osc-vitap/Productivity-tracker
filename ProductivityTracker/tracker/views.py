@@ -124,8 +124,7 @@ def get_active_window():
     try:
         if sys.platform in ["Windows", "win32", "cygwin"]:
             window = win32gui.GetForegroundWindow()
-            pid = win32process.GetWindowThreadProcessId(
-                win32gui.GetForegroundWindow())
+            pid = win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow())
             _active_window_name = psutil.Process(pid[-1]).name()
         else:
             print(
@@ -194,8 +193,7 @@ def final(val, fmval):
 
     except KeyboardInterrupt:
         with open("activities.json", "w") as json_file:
-            json.dump(activeList.serialize(), json_file,
-                      indent=4, sort_keys=True)
+            json.dump(activeList.serialize(), json_file, indent=4, sort_keys=True)
 
 
 # ----------------------------------------------------------------------------------------
@@ -246,13 +244,11 @@ def foo(hive, flag):
             software["name"] = winreg.QueryValueEx(asubkey, "DisplayName")[0]
 
             try:
-                software["version"] = winreg.QueryValueEx(
-                    asubkey, "DisplayVersion")[0]
+                software["version"] = winreg.QueryValueEx(asubkey, "DisplayVersion")[0]
             except EnvironmentError:
                 software["version"] = "undefined"
             try:
-                software["publisher"] = winreg.QueryValueEx(
-                    asubkey, "Publisher")[0]
+                software["publisher"] = winreg.QueryValueEx(asubkey, "Publisher")[0]
             except EnvironmentError:
                 software["publisher"] = "undefined"
             software_list.append(software)
@@ -298,7 +294,7 @@ def about(request):
     except:
         print("\nSchedule Time not found.\n")
 
-    context = {"apps": apps, "selectedApp": data, 'start_time': '', 'end_time': ''}
+    context = {"apps": apps, "selectedApp": data, "start_time": "", "end_time": ""}
 
     if len(schedulertime) > 0:
         startH = schedulertime[0:2]
@@ -309,8 +305,8 @@ def about(request):
         start_time = startH + ":" + startM
         end_time = endH + ":" + endM
 
-        context['start_time'] = start_time
-        context['end_time'] = end_time
+        context["start_time"] = start_time
+        context["end_time"] = end_time
     # for app in apps:
     # print app.InstalledProductName
     # apps[0].InstalledProductName
@@ -379,7 +375,7 @@ def setTime(request):
         print(start_time, end_time)
         if start_time != None and end_time != None:
             print(start_time, end_time)
-            schedulertime = start_time+end_time
+            schedulertime = start_time + end_time
             with open("schedulerTiming.pkl", "wb") as file:
                 pickle.dump(schedulertime, file)
     try:
@@ -407,9 +403,11 @@ def setTime(request):
 
 def focusMode2(startH, startM, endH, endM):
     while True:
-        if (d(d.now().year, d.now().month, d.now().day, startH, startM)
-                < d.now()
-                < d(d.now().year, d.now().month, d.now().day, endH, endM)):
-            focusMode('on')
+        if (
+            d(d.now().year, d.now().month, d.now().day, startH, startM)
+            < d.now()
+            < d(d.now().year, d.now().month, d.now().day, endH, endM)
+        ):
+            focusMode("on")
         elif d.now() > d(d.now().year, d.now().month, d.now().day, endH, endM):
             return
