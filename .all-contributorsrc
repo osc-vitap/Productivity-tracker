@@ -14,6 +14,17 @@
         "design",
         "code"
       ]
+    },
+    {
+      "login": "tahajunaid",
+      "name": "Taha Junaid",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52748060?v=4",
+      "profile": "https://github.com/tahajunaid",
+      "contributions": [
+        "bug",
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
