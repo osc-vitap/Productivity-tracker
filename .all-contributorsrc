@@ -16,6 +16,14 @@
       ]
     },
     {
+      "login": "tahajunaid",
+      "name": "Taha Junaid",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52748060?v=4",
+      "profile": "https://github.com/tahajunaid",
+      "contributions": [
+        "bug",
+        "code",
+        "test"
       "login": "AshutoshSingh-123",
       "name": "Ashutosh Singh",
       "avatar_url": "https://avatars.githubusercontent.com/u/61592428?v=4",
@@ -34,10 +42,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/54742586?v=4",
       "profile": "https://www.vijaybalaji.social",
       "contributions": [
-        "code",
-        "ideas",
         "mentoring",
-        "test",
+        "ideas",
         "review"
       ]
     }
