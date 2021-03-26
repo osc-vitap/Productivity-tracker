@@ -28,13 +28,7 @@ based on both user preferences as well as the default settings. Users can also
 customize the level of data they want to share.
 
 The application specifically focuses on analytics, that is, statistics of the data collected
-will be displayed for user to see and download
-
-
-## License 
-
-Productivity-tracker is under The MIT License. Read the [LICENSE](https://github.com/Open-Source-Community-VIT-AP/Productivity-tracker/blob/master/LICENSE) file for more information.
-
+will be displayed for user to see and download.
 
 ## Contributors ✨
 
@@ -58,4 +52,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## License 
+
+Productivity-tracker is under The MIT License. Read the [LICENSE](https://github.com/Open-Source-Community-VIT-AP/Productivity-tracker/blob/master/LICENSE) file for more information.
