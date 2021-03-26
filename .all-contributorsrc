@@ -14,6 +14,16 @@
         "design",
         "code"
       ]
+    },
+    {
+      "login": "AshutoshSingh-123",
+      "name": "Ashutosh Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61592428?v=4",
+      "profile": "https://github.com/AshutoshSingh-123",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
