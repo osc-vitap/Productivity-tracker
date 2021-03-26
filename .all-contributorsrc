@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "iamvineettiwari",
+      "name": "VINEET TIWARI",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47891034?v=4",
+      "profile": "https://www.linkedin.com/in/iamvineettiwari/",
+      "contributions": [
+        "design",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Productivity-tracker",
+  "projectOwner": "Open-Source-Community-VIT-AP",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
