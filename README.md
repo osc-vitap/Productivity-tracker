@@ -3,6 +3,10 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+![WSoC Status](https://img.shields.io/badge/WSoC-2020-green)
+![WSoC Status](https://img.shields.io/badge/WSoC-2021-blue)
+
+
 <p align="center">
     <img src="assets\Logo.PNG" alt="Logo" width = "500px">
     <br>Application to help you stay focused and productive.
@@ -17,7 +21,7 @@
 </p>
 
 Winter Season of Code is an Initiative by the Open Source community at VIT-AP to help increase Open source activity.
-To know more about WSoC, click [here](https://www.wsocbyosc.com/).
+To know more about WSoC, click [here](https://wsoc.oscvitap.org).
 
 ### Project
 
