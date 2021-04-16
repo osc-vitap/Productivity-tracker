@@ -3,8 +3,8 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-![WSoC Status](https://img.shields.io/badge/WSoC-2020-green)
-![WSoC Status](https://img.shields.io/badge/WSoC-2021-blue)
+[![WSoC Status](https://img.shields.io/badge/WSoC-2020-green)](https://wsoc.oscvitap.org)
+[![WSoC Status](https://img.shields.io/badge/WSoC-2021-blue)](https://wsoc.oscvitap.org)
 
 
 <p align="center">
